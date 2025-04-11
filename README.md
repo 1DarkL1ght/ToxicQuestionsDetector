@@ -1,6 +1,6 @@
 # Toxic questions detector
 ## Description
-    Here's simple API for my language model, that detects toxic questions in english
+    Here's simple API for my language model that detects toxic questions in english
 ## Train data
     I used [Quora Insincere Questions Classification](https://www.kaggle.com/competitions/quora-insincere-questions-classification) dataset and 
     [GloVe embeddings](https://www.kaggle.com/datasets/takuok/glove840b300dtxt/code)
@@ -14,3 +14,4 @@
     - Try different architectures, such as [transformer](https://arxiv.org/abs/1706.03762)
     - Extend API with methods for fine-tune and train
     - Export model to ONNX format
+    - Extend dataset
