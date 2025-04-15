@@ -1,47 +1,17 @@
-import random
-import warnings
-
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import nltk
 import torch
-import sklearn
-
-from nltk.tokenize import word_tokenize
-from nltk.stem import SnowballStemmer
+from torch import nn
 from nltk.tokenize.regexp import RegexpTokenizer
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 
-from torch import nn
-from torch.utils.data import TensorDataset, DataLoader, random_split
-from torch.optim.lr_scheduler import ReduceLROnPlateau
-from torch.optim import Adam
-from torcheval.metrics import MulticlassAccuracy
-from sklearn.metrics import f1_score
-from sklearn.metrics import precision_score
-from sklearn.metrics import recall_score
-
-from tqdm.notebook import tqdm
-
-
-nltk.download('stopwords')
-nltk.download('popular')
-nltk.download('punkt')
-nltk.download('punkt_tab')
-
-warnings.filterwarnings('ignore')
-
-from detector.model import LSTM_Model
+from detector.model import LSTMAttention_Model
 
 import __main__
-setattr(__main__, "LSTM_Model", LSTM_Model)
+setattr(__main__, "LSTMAttention_Model", LSTMAttention_Model)
 
 
 class Detector:
-    def __init__(self, model_path='model.pt', vocab_path='vocab.txt'):
+    def __init__(self, model_path: str, vocab_path='vocab.txt'):
         self.backbone = torch.load(model_path, weights_only=False)
         self.backbone.eval()
         self.device = 'cpu'
