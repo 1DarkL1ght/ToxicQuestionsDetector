@@ -5,9 +5,13 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 
 from detector.model import LSTMAttention_Model
+from detector.model import TransformerEncoder_Model
+from detector.model import PositionalEncoding
 
 import __main__
 setattr(__main__, "LSTMAttention_Model", LSTMAttention_Model)
+setattr(__main__, "TransformerEncoder_Model", TransformerEncoder_Model)
+setattr(__main__, "PositionalEncoding", PositionalEncoding)
 
 
 class Detector:

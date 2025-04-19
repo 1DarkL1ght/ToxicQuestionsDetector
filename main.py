@@ -6,7 +6,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--text', type=str)
     parser.add_argument('--device', type=str, default='cuda:0')
-    parser.add_argument('--model', type=str, default='AttnLSTM')
+    parser.add_argument('--model', type=str, default='Transformer')
     args = parser.parse_args()
 
     test_text = args.text
@@ -17,7 +17,10 @@ def main():
     
     if model == 'AttnLSTM':
         print("Using Attention-based LSTM model")
-        model_path='model/Attention_based_LSTM_best_state_full.pt.pt'
+        model_path='model/Attention_based_LSTM_best_state_full.pt'
+    elif model == 'Transformer':
+        print("Using Transformer model")
+        model_path='model/Transformer_textclassifier_early_stopped_full.pt'
     else:
         raise ValueError(f"Model {model} not supported")
 
